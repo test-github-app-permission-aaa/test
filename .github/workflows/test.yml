@@ -15,11 +15,15 @@ jobs:
         uses: tibdex/github-app-token@v1
         with:
           app_id: ${{ secrets.MY_GITHUB_APP_ID }}
-          private_key: ${{ secrets.MY_GITHUB_APP_PRIVATE_KEY }}
+          private_key: ${{ secrets.MY_GITHUB_APP_SECRET }}
 
       - name: get PR
+        env:
+          GH_TOKEN: ${{ steps.generate_token.outputs.token }}
         run: |
+          set -e
           gh pr list
+          gh pr view 1 --json author --json title --json url --json statusCheckRollup | jq .
 
 
 
