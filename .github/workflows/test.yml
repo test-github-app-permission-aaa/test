@@ -15,7 +15,7 @@ jobs:
         uses: tibdex/github-app-token@v1
         with:
           app_id: ${{ secrets.MY_GITHUB_APP_ID }}
-          private_key: ${{ secrets.MY_GITHUB_APP_PRIVATE_KEY }}
+          private_key: ${{ secrets.MY_GITHUB_APP_SECRET }}
 
       - name: get PR
         run: |
