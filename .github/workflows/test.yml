@@ -18,6 +18,8 @@ jobs:
           private_key: ${{ secrets.MY_GITHUB_APP_SECRET }}
 
       - name: get PR
+        env:
+          GH_TOKEN: ${{ steps.generate_token.outputs.token }}
         run: |
           gh pr list
 
