@@ -8,5 +8,6 @@ jobs:
   main:
     runs-on: ubuntu-latest
     steps:
-      run: |
-        echo "hello"
+      - name: CI
+        run: |
+          echo "hello"
