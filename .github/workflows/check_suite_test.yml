@@ -2,11 +2,17 @@ name: check suite test
 
 on:
   check_suite:
+    types: [completed]
 
 jobs:
   main:
     runs-on: ubuntu-latest
     steps:
+      - name: Checkout source code
+        uses: actions/checkout@master
+        with:
+          fetch-depth: 1
+
       - name: Check branch names
         id: check_branch_names
         run: |
