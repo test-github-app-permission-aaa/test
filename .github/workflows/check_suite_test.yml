@@ -2,7 +2,6 @@ name: check suite test
 
 on:
   check_suite:
-    types: [completed]
 
 jobs:
   main:
