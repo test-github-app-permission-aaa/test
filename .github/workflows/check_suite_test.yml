@@ -1,0 +1,16 @@
+name: check suite test
+
+on:
+  check_suite:
+    types: [completed]
+
+jobs:
+  main:
+    runs-on: ubuntu-latest
+    steps:
+      - name: Check branch names
+        id: check_branch_names
+        run: |
+          BASE_BRANCH_NAME="${{ github.event.check_suite.pull_requests.base.ref }}"
+          HEAD_BRANCH_NAME="${{ github.event.check_suite.pull_requests.head.ref }}"
+          echo ${BASE_BRANCH_NAME} ${HEAD_BRANCH_NAME}
