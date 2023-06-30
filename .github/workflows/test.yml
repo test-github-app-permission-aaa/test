@@ -21,9 +21,7 @@ jobs:
         env:
           GH_TOKEN: ${{ steps.generate_token.outputs.token }}
         run: |
-          set -e
-          gh pr list
-          gh pr view 1 --json author --json title --json url --json statusCheckRollup | jq .
+          gh pr view 1 --json statusCheckRollup | jq .
 
 
 
